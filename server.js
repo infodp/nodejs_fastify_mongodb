@@ -18,7 +18,7 @@ const startServer = async () => {
             if(err) {
                 console.error(err)
             }
-            console.log(`Server running in http://localhost:${port}/api/players`);
+            //console.log(`Server running in http://localhost:${port}/api/players`);
         })        
     } catch (err) {
         fastify.log.error(err)
