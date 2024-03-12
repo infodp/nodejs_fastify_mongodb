@@ -8,7 +8,7 @@ const fastify = Fastify({
 
 fastify.register(routes, {prefix:"/api/players"})
 
-const port = process.env.PORT
+const port = process.env.PORT || 5000
 const uri = process.env.MONGO_URI
 
 const startServer = async () => {
