@@ -17,20 +17,16 @@ const uri = process.env.MONGO_URI
 
 const startServer = async () => {
     try {
-        //connectDB(uri)
-        // fastify.listen({port}, (err)=>{
-        //     if(err) {
-        //         console.error(err)
-        //     }
-        //     //console.log(`Server running in http://localhost:${port}/api/players`);
-        //     console.log(`¡Server running!`);
-        // })   
-        
-        connectDB(uri);
-        fastify.listen(port, {
-            host: '0.0.0.0',
-            ips: ['52.41.36.82', '54.191.253.12', '44.226.122.3']
-        });
+        /* await connectDB(uri)
+        await fastify.listen({port}, (err)=>{
+            if(err) {
+                console.error(err)
+            }
+            //console.log(`Server running in http://localhost:${port}/api/players`);
+            console.log(`¡Server running!`);
+        }) */   
+        await connectDB(uri); // Espera a que la conexión a la base de datos se complete
+        await fastify.listen(port, '0.0.0.0'); // Ahora que la conexión a la base de datos está establecida, inicia el servidor
         console.log(`Server running on port ${port}`);
     } catch (err) {
         fastify.log.error(err)
