@@ -1,6 +1,9 @@
 import Fastify from "fastify"
 import { connectDB } from "./database/db.js"
 import routes from "./routes/routes.js"
+import dotenv from 'dotenv'
+
+dotenv.config({path:"./.env"})
 
 const fastify = Fastify({
     logger:true
