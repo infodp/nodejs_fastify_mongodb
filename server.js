@@ -16,6 +16,7 @@ const uri = process.env.MONGO_URI
 
 const startServer = async () => {
     try {
+        await connectDB(uri); 
         await fastify.listen({ port, host: "0.0.0.0" }, (err, address) => {
         if (err) {
           fastify.log.error(err);
